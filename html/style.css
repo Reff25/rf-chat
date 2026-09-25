@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #e6e6e6;
+}
+
+.chat {
+    position: absolute;
+    top: 2.4vh;
+    left: 1.6vw;
+    width: min(28vw, 420px);
+    max-width: 38vw;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.chat.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chat.open {
+    pointer-events: auto;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 28vh;
+    overflow: hidden;
+    padding: 8px 10px;
+    background: rgba(18, 18, 20, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+.messages:empty {
+    display: none;
+}
+
+.msg {
+    font-size: 13px;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.msg-me {
+    color: #c8c4be;
+    font-style: italic;
+}
+
+.msg-me .name {
+    color: #ddd9d2;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.msg-system {
+    color: #9a9a9a;
+    font-style: normal;
+}
+
+.form {
+    display: none;
+    margin-top: 6px;
+}
+
+.chat.open .form {
+    display: block;
+}
+
+.input {
+    width: 100%;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    outline: none;
+    background: rgba(16, 16, 18, 0.78);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.24);
+    color: #ececec;
+    font-size: 13px;
+    font-family: inherit;
+}
+
+.input::placeholder {
+    color: #7c7c7c;
+}
+
+.suggestions {
+    margin-top: 6px;
+    padding: 6px 8px;
+    background: rgba(16, 16, 18, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.24);
+}
+
+.suggestion {
+    padding: 3px 2px;
+}
+
+.suggestion + .suggestion {
+    margin-top: 4px;
+}
+
+.suggestion-line {
+    font-size: 12px;
+    line-height: 1.3;
+    color: #d8d8d8;
+}
+
+.suggestion-name,
+.suggestion-param {
+    margin-right: 4px;
+}
+
+.suggestion-param {
+    color: #b0b0b0;
+}
+
+.suggestion .disabled {
+    color: #6f6f6f;
+}
+
+.suggestion-help {
+    display: block;
+    margin-top: 1px;
+    font-size: 11px;
+    color: #8d8d8d;
+}
